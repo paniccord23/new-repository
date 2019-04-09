@@ -8,14 +8,21 @@ function startTimer(e) {
   const input = e.target.querySelector('input')
   input.disabled = true
 
+  // память браузера localStorage
+  // value - text from input, key - we must create it by yourself
+  const key = Date.now()
+  localStorage.setItem(key, input.value)
+
+
   progress.style.width = '100vw'
   progress.style.transitionDuration = WORK_TIME + 'ms'
 
 
   setTimeout(function (){
+
     input.disabled = false
     input.focus()
-    input.value = ''
+
 
     progress.style.transitionDuration = ''
     progress.style.width = ''
@@ -23,6 +30,7 @@ function startTimer(e) {
     const listItem = document.createElement('li')
     listItem.innerText = input.value
     tasks.appendChild(listItem)
+    input.value = ''
 
   }, 2000)
 }
