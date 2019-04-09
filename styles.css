@@ -1,7 +1,42 @@
 /* размер формы зависит от шрифта или можем увеличить инпут, но содержимое самого инпута будет тоже маленьким */
+@import "reset.css";
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,900,900i');
+body {
+  font-family: 'Roboto', sans-serif;
+}
+form {
+  margin-top: 45vh;
+  /* трансформ для тюнинга отступа */
+
+  transform: translateY(-50%);
+  text-align: center;
+}
+
 input {
   text-align: center;
+  /* убрали стандартную рамку и сделали свою */
+
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
   font-size: 8vw;
   font-weight: bold;
+}
+
+input::placeholder {
+  color: #000;
+
+  font-style: italic;
+}
+
+ul {
+  list-style: none;
+
+  text-align: center;
+  text-decoration: line-through;
+
+  opacity: 0.25;
+
+  font-size: 4vw;
+  line-height: 2;
 }
