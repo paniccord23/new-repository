@@ -11,8 +11,15 @@ form {
   transform: translateY(-50%);
   text-align: center;
 }
+/* 1em - размер шрифта нашего инпута, отступ будет уменьшаться/увеличиваться пропорционально размеру шрифта */
 
+/* outline - синяя рамка вокруг инпута когда он выбран */
+
+/* добавили анимацию для плавности изменения бордер боттом */
 input {
+  padding-bottom: 0.25em;
+
+  transition: border-bottom 300ms ease;
   text-align: center;
   /* убрали стандартную рамку и сделали свою */
 
@@ -21,6 +28,9 @@ input {
 
   font-size: 8vw;
   font-weight: bold;
+  /* цвет каретки - палочка ввода текста */
+
+  caret-color: rgb(255, 0, 0);
 }
 
 input::placeholder {
@@ -29,7 +39,17 @@ input::placeholder {
   font-style: italic;
 }
 
+input:focus {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.45);
+  outline: none;
+}
+input:disabled {
+  color: rgba(255, 0, 0, 0.35);
+}
 ul {
+  display: flex;
+  flex-direction: column-reverse;
+
   list-style: none;
 
   text-align: center;
@@ -39,4 +59,18 @@ ul {
 
   font-size: 4vw;
   line-height: 2;
+}
+
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 0;
+  height: 100vh;
+
+  transition-timing-function: ease;
+  transition-property: width;
+
+  background-color: rgba(0, 0, 0, 0.25);
 }
