@@ -32,6 +32,22 @@ function startTimer(e) {
     tasks.appendChild(listItem)
     input.value = ''
 
-  }, 2000)
+  }, WORK_TIME)
+}
+
+function loadHistory() {
+  const historySize = localStorage.length
+
+  if (historySize > 0) {
+    for (let i = 0; i < historySize; i++) {
+      const key = localStorage.key(i)
+      const taskName = localStorage.getItem(key)
+
+      const listItem = document.createElement('li')
+      listItem.innerText = taskName
+      tasks.appendChild(listItem)
+    }
+  }
 }
 form.onsubmit = startTimer
+loadHistory()
